@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<!--
+
+/**
+ * @author Kashyap Team
+ * @copyright Copyright (c) 2018 Kashyap (http://kashyapsoftware.com/)
+ * @package Kashyap_AttributeSplash
+*/
+
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table comment="kashyap_attributesplash_attributesplash Table" engine="innodb" name="kashyap_attributesplash_attributesplash" resource="default">
+		<column comment="Entity Id" identity="true" name="attributesplash_id" nullable="false" padding="6" unsigned="false" xsi:type="smallint"/>
+		<constraint referenceId="PRIMARY" xsi:type="primary">
+			<column name="attributesplash_id"/>
+		</constraint>
+		<column length="255" name="name" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="url_key" nullable="true" xsi:type="varchar"/>
+		<column name="description" nullable="true" xsi:type="text"/>
+		<column name="short_description" nullable="true" xsi:type="text"/>
+		<column length="255" name="image" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="thumbnail" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="page_title" nullable="true" xsi:type="varchar"/>
+		<column name="meta_keywords" nullable="true" xsi:type="text"/>
+		<column name="meta_description" nullable="true" xsi:type="text"/>
+		<column name="creation_time" nullable="true" xsi:type="datetime" on_update="false" default="CURRENT_TIMESTAMP"/>
+		<column name="update_time" nullable="true" xsi:type="datetime" on_update="true" default="CURRENT_TIMESTAMP"/>
+		<column name="status" nullable="true" xsi:type="boolean"/>
+		<column identity="false" name="position" nullable="true" xsi:type="int"/>
+		<column identity="false" name="attribute_id" nullable="true" xsi:type="int"/>
+		<column identity="false" name="featured" nullable="true" xsi:type="int"/>
+		<column length="255" name="store_views" nullable="true" xsi:type="varchar"/>
+	</table>
+</schema>

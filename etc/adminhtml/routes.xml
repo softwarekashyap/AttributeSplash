@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!--
+
+/**
+ * @author Kashyap Team
+ * @copyright Copyright (c) 2018 Kashyap (http://kashyapsoftware.com/)
+ * @package Kashyap_AttributeSplash
+*/
+
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+	<router id="admin">
+		<route frontName="kashyap_attributesplash" id="kashyap_attributesplash">
+			<module before="Magento_Backend" name="Kashyap_AttributeSplash"/>
+		</route>
+	</router>
+</config>

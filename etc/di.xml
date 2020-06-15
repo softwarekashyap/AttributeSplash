@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<!--
+
+/**
+ * @author Kashyap Team
+ * @copyright Copyright (c) 2018 Kashyap (http://kashyapsoftware.com/)
+ * @package Kashyap_AttributeSplash
+*/
+
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Kashyap\AttributeSplash\Api\AttributeSplashRepositoryInterface" type="Kashyap\AttributeSplash\Model\AttributeSplashRepository"/>
+	<preference for="Kashyap\AttributeSplash\Api\Data\AttributeSplashInterface" type="Kashyap\AttributeSplash\Model\Data\AttributeSplash"/>
+	<preference for="Kashyap\AttributeSplash\Api\Data\AttributeSplashSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Kashyap\AttributeSplash\Model\ResourceModel\AttributeSplash\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">kashyap_attributesplash_attributesplash</argument>
+			<argument name="resourceModel" xsi:type="string">Kashyap\AttributeSplash\Model\ResourceModel\AttributeSplash\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="kashyap_attributesplash_attributesplash_listing_data_source" xsi:type="string">Kashyap\AttributeSplash\Model\ResourceModel\AttributeSplash\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+	
+	<preference for="Magento\Catalog\Model\Layer\ContextInterface" type="Magento\Catalog\Model\Layer\Context" />
+    <preference for="Magento\Catalog\Model\Layer\ItemCollectionProviderInterface" type="Magento\Catalog\Model\Layer\Category\ItemCollectionProvider" />
+    <preference for="Magento\Catalog\Model\Layer\StateKeyInterface" type="Magento\Catalog\Model\Layer\Category\StateKey" />
+    <preference for="Magento\Catalog\Model\Layer\CollectionFilterInterface" type="Magento\Catalog\Model\Layer\Category\CollectionFilter" />
+    <preference for="Magento\Catalog\Model\Layer\FilterableAttributeListInterface" type="Magento\Catalog\Model\Layer\Category\FilterableAttributeList" />
+    <preference for="Magento\Catalog\Model\Layer\AvailabilityFlagInterface" type="Magento\Catalog\Model\Layer\Category\AvailabilityFlag" />
+    <preference for="Magento\Catalog\Model\ResourceModel\Layer\Filter\Price" type="Kashyap\AttributeSplash\Model\ResourceModel\Layer\Filter\Price" />
+
+</config>

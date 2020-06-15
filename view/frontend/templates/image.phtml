@@ -1,0 +1,10 @@
+<?php
+    $attributeCollection = $block->getAttributeCollection();
+    if($attributeCollection->getThumbnail()):
+?>
+
+    <div class="category-image">
+        <img src="<?= $block->getAttributeSplashImageURL($attributeCollection->getThumbnail()) ?>" alt="Casamania &amp; Horm" title="Casamania &amp; Horm" class="image">
+    </div>
+    
+<?php endif; ?>

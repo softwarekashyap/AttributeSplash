@@ -1,0 +1,10 @@
+<?php
+    $attributeCollection = $block->getAttributeCollection();
+    if($attributeCollection->getDescription()):
+?>
+
+    <div class="category-description">
+        <span class="amshopby-descr"><?= $attributeCollection->getDescription() ?></span>
+    </div>
+    
+<?php endif; ?>

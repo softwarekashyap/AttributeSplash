@@ -1,0 +1,70 @@
+<?php 
+    $attributeSplashs = $this->getAttributeSplashsSidebar();
+    if($attributeSplashs) :
+        $i = 0;
+?>
+
+    <div class="mod-designers">
+        <h3><?= __('In the spotlight'); ?></h3>
+        <ul class="list">
+            <?php 
+                foreach($attributeSplashs as $splashs) : 
+                    $i++;
+                    if($i == 1){
+                        $calss = " active";
+                    } else { 
+                        $calss = "";  
+                    }
+            ?>
+                <li>
+                    <a title="<?= $splashs->getName() ?>" href="<?= $this->getAttributeSplashURL($splashs->getUrlKey()) ?>" rel="#designer-<?= $i ?>">
+                        <img width="35" height="35" alt="<?= $splashs->getName() ?>" src="<?= $this->getAttributeSplashImageURL($splashs->getThumbnail()) ?>">
+                    </a>
+                    
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <?php 
+            $i = 0 ;
+            foreach($attributeSplashs as $splashs) : 
+                $i++;
+                if($i == 1){
+                    $calss = " active";
+                } else { 
+                    $calss = "";  
+                }
+        ?>
+        <div id="designer-<?= $i ?>" class="bio<?= $calss ?> clear">
+            <h4><?= $splashs->getName() ?></h4>
+            <div class="std"><?= $splashs->getShortDescription() ?></div>
+            <a href="<?= $this->getAttributeSplashURL($splashs->getUrlKey()) ?>"><?= __("Details") ?></a>
+        </div>
+        <?php endforeach; ?>
+        
+        <div class="fixer">
+            <div class="view-all">
+                <a href="<?= $this->getUrl()?>attributesplash" class="btn">
+                    <span><?= __("Show") ?></span><strong><?= __("all designers") ?></strong>
+                </a>
+            </div>
+        </div>
+    </div>
+
+<?php endif; ?>
+
+<script type="text/javascript">
+    // HOVER ON DESIGNERS THUMBS
+    jQuery(document).ready(function(){
+        jQuery('.mod-designers .list li').mouseenter(function() {
+            var relBio = jQuery(this).find('a').attr('rel');
+            jQuery(this).animate({
+                'opacity':'1'
+            },200).siblings().stop(true,true).animate({
+                    'opacity':'.3'
+                },200);
+            jQuery('.mod-designers .bio').not(relBio).hide();
+            jQuery(relBio).show();
+        });
+    });
+
+</script>

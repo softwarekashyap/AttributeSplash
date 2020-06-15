@@ -1,0 +1,12 @@
+<?php
+    $collection = $this->getCurrentAttributeSplas();
+    if(!empty($collection)) :
+?>
+        <div class="box-splas">
+            <div class="row-attr">
+                <span class="label"><?= __("Designer") ?>:</span>
+                <span class="value"><a href="<?= $this->getAttributeSplashURL($collection->getUrlKey()) ?>"><?= $collection->getName() ?></a></span>
+            </div>
+            
+        </div>
+<?php endif; ?>

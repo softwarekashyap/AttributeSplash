@@ -1,0 +1,55 @@
+<?php 
+$_attributeSplashs = $this->getAttributeSplashs();
+$featured = $this->getFeaturedAttributeSplashs();
+?>
+
+<div id="shopby-group-page">
+    <div class="page-list">   
+        <div class="page-head">
+            <h3><?= __("Designer") ?></h3>
+        </div>
+        <?php foreach (range('0', '9') as $char) : ?>
+        	<?php if(isset($_attributeSplashs[$char])):?>
+        		<div class="brand-char">
+        			<strong><?= $char;?></strong>
+        			<ul>
+        			<?php foreach($_attributeSplashs[$char] as $_attributeSplash):?>
+        				<li>
+        					<?php if($_brand->getUrlKey()):?>
+        						<a href="<?= $this->getAttributeSplashURL($_attributeSplash->getUrlKey()) ?>"><?= $_attributeSplash->getName();?></a>
+        					<?php endif;?>
+        				</li>
+        			<?php endforeach;?>
+        			</ul>
+        		</div>
+        	<?php endif;?>
+        <?php endforeach;?>
+        
+        <div class="content">
+            <?php $i=0 ?>
+            <?php foreach (range('A', 'Z') as $char) :?>
+            	<?php if(isset($_attributeSplashs[$char])):?>
+            		<div class="attributesplash-char">
+            			<strong> <?= $char;?></strong>
+            			<ul>
+            			<?php foreach($_attributeSplashs[$char] as $_attributeSplas):?>
+            				<li>
+            					<?php if($_attributeSplas->getUrlKey()):?>
+            						<a href="<?= $this->getAttributeSplashURL($_attributeSplas->getUrlKey()) ?>"><?= $_attributeSplas->getName();?></a>
+            					<?php endif;?>
+            				</li>
+            			<?php endforeach;?>
+            			</ul>
+            		</div>
+            		<?php 
+                        $i++; 
+                        if($i%6 == 0 ){
+                            echo '<div class="breaker"></div>';
+                        }
+                    ?>
+            	<?php endif;?>
+            <?php endforeach;?>
+        </div>
+        
+    </div>
+</div>

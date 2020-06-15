@@ -1,0 +1,181 @@
+<?xml version="1.0" ?>
+<!--
+	
+/**
+ * @author Kashyap Team
+ * @copyright Copyright (c) 2018 Kashyap (http://kashyapsoftware.com/)
+ * @package Kashyap_AttributeSplash
+*/
+
+-->
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">kashyap_attributesplash_attributesplash_listing.kashyap_attributesplash_attributesplash_listing_data_source</item>
+		</item>
+	</argument>
+	<settings>
+		<spinner>kashyap_attributesplash_attributesplash_columns</spinner>
+		<deps>
+			<dep>kashyap_attributesplash_attributesplash_listing.kashyap_attributesplash_attributesplash_listing_data_source</dep>
+		</deps>
+		<buttons>
+			<button name="add">
+				<url path="*/*/new"/>
+				<class>primary</class>
+				<label translate="true">Add New Splash</label>
+			</button>
+			
+			<button name="syc">
+				<url path="*/*/sync"/>
+				<class>primary</class>
+				<label translate="true">Synchronise Attribute Splash</label>
+			</button>
+		</buttons>
+	</settings>
+	<dataSource component="Magento_Ui/js/grid/provider" name="kashyap_attributesplash_attributesplash_listing_data_source">
+		<settings>
+			<updateUrl path="mui/index/render"/>
+		</settings>
+		<aclResource>Kashyap_AttributeSplash::AttributeSplash</aclResource>
+		<dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="kashyap_attributesplash_attributesplash_listing_data_source">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>attributesplash_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+	<columns name="kashyap_attributesplash_attributesplash_columns">
+		<settings>
+			<!--<editorConfig>
+				<param name="selectProvider" xsi:type="string">kashyap_attributesplash_attributesplash_listing.kashyap_attributesplash_attributesplash_listing.kashyap_attributesplash_attributesplash_columns.ids</param>
+				<param name="enabled" xsi:type="boolean">true</param>
+				<param name="indexField" xsi:type="string">attributesplash_id</param>
+				<param name="clientConfig" xsi:type="array">
+					<item name="saveUrl" path="kashyap_attributesplash/AttributeSplash/inlineEdit" xsi:type="url"/>
+					<item name="validateBeforeSave" xsi:type="boolean">false</item>
+				</param>
+			</editorConfig>-->
+			<childDefaults>
+				<param name="fieldAction" xsi:type="array">
+					<item name="provider" xsi:type="string">kashyap_attributesplash_attributesplash_listing.kashyap_attributesplash_attributesplash_listing.kashyap_attributesplash_attributesplash_columns_editor</item>
+					<item name="target" xsi:type="string">startEdit</item>
+					<item name="params" xsi:type="array">
+						<item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+						<item name="1" xsi:type="boolean">true</item>
+					</item>
+				</param>
+			</childDefaults>
+		</settings>
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>attributesplash_id</indexField>
+			</settings>
+		</selectionsColumn>
+		
+		<column name="attributesplash_id">
+			<settings>
+				<filter>text</filter>
+				<sorting>asc</sorting>
+				<label translate="true">ID</label>
+			</settings>
+		</column>
+		
+		<column name="attribute_id">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Attribute</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		
+		<!--<column name="attribute_id" class="Kashyap\AttributeSplash\Model\Source\Attribute">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                <item name="label" xsi:type="string" translate="true">Attribute</item>
+                </item>
+            </argument>
+        </column>-->
+        
+        <column name="attribute_id" class="Kashyap\AttributeSplash\Ui\Component\Listing\Column\Attribute">
+            <argument name="data" xsi:type="array">                                               
+                <item name="config" xsi:type="array">                                             
+                    <item name="filter" xsi:type="string">text</item>                             
+                    <item name="label" xsi:type="string" translate="true">Attribute</item>          
+                </item>                                                                           
+            </argument>                                                                           
+        </column>
+		
+		<column name="name">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Name</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		
+		<column name="url_key">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">URL Key</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		
+		<column name="store_views" class="Kashyap\AttributeSplash\Ui\Component\Listing\Column\StoreView">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                <item name="label" xsi:type="string" translate="true">Store View(s)</item>
+                </item>
+            </argument>
+        </column>
+        
+        <column name="status">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Kashyap\AttributeSplash\Ui\Component\Listing\Column\Status</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="editor" xsi:type="string">select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Status</item>
+                </item>
+            </argument>
+        </column>
+		
+		<actionsColumn class="Kashyap\AttributeSplash\Ui\Component\Listing\Column\AttributeSplashActions" name="actions">
+			<settings>
+				<indexField>attributesplash_id</indexField>
+				<resizeEnabled>false</resizeEnabled>
+				<resizeDefaultWidth>107</resizeDefaultWidth>
+			</settings>
+		</actionsColumn>
+	</columns>
+</listing>

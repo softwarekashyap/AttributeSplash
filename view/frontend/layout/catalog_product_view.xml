@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+
+/**
+ * @author Kashyap Team
+ * @copyright Copyright (c) 2018 Kashyap (http://kashyapsoftware.com/)
+ * @package Kashyap_AttributeSplash
+*/
+
+-->
+
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+
+    <referenceContainer name="product.info.price">
+        <block class="Kashyap\AttributeSplash\Block\AttributeSplash" name="attribute-splash-info" template="Kashyap_AttributeSplash::attribute_splash_logo.phtml" before="-"/>
+    </referenceContainer>
+
+</layout>

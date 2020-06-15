@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<!--
+
+/**
+ * @author Kashyap Team
+ * @copyright Copyright (c) 2018 Kashyap (http://kashyapsoftware.com/)
+ * @package Kashyap_AttributeSplash
+*/
+
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Kashyap::top_level" module="Kashyap_AttributeSplash" resource="Magento_Backend::content" sortOrder="9999" title="Kashyap"/>
+		<add action="kashyap_attributesplash/attributesplash/index" id="Kashyap_AttributeSplash::kashyap_attributesplash_attributesplash" module="Kashyap_AttributeSplash" parent="Kashyap::top_level" resource="Magento_Backend::content" sortOrder="9999" title="Attribute Splash"/>
+	</menu>
+</config>
