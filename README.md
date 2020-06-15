@@ -2,9 +2,9 @@
 
 Attribute Splash allows you to create product listing pages very quickly by applying attribute, price and category filters to your products. The products that match the filters will be displayed on the Splash Page and the whole thing will look just like a category page. As you update and add new products, the products displayed on Splash Pages will also update automatically.
 
-Splash Pro is great for SEO and marketing because you can very quickly create new product collections and display them on a page that you have complete control over. You can modify the page title, meta information, on page text, URL and much more right from the Magento Admin!
+Attribute Splash is great for SEO and marketing because you can very quickly create new product collections and display them on a page that you have complete control over. You can modify the page title, meta information, on page text, URL and much more right from the Magento Admin.
 
-Splash Pro is not a replacement for Attribute Splash Pages and both extensions can be used at the same time. While Attribute Splash Pages offers 'shop by attribute' functionality, Attribute Splash Pro allows you to create great product listing pages for marketing and SEO.
+Attribute Splash is not a replacement for Attribute Splash Pages and both extensions can be used at the same time. While Attribute Splash Pages offers 'shop by attribute' functionality, Attribute Splash Pro allows you to create great product listing pages for marketing and SEO.
 
 ## Installation without composer
 * Download zip file of this extension
